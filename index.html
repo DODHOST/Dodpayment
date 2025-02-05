@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment By DodHosting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="sky.png" type="image/x-icon">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            background: url('https://img101.pixhost.to/images/84/546560677_skyzopedia.jpg') no-repeat center center fixed;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            max-width: 600px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+            border: 4px solid;
+            animation: borderGlow 1.5s infinite alternate, fadeIn 1.5s ease-in-out;
+        }
+
+        .title {
+            font-size: 28px;
+            color: #333;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            white-space: nowrap;
+            box-sizing: border-box;
+            animation: animateTitle 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        @keyframes animateTitle {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+
+        .description {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .qr-section h2 {
+            font-size: 22px;
+            color: #222;
+            margin-bottom: 10px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .qr-container {
+            position: relative;
+            margin-bottom: 20px;
+            border: 4px solid;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: #fafafa;
+            animation: borderGlow 1.5s infinite alternate, fadeIn 1.5s ease-in-out;
+        }
+
+        .qr-container img {
+            width: 300px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .qr-controls {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .qr-controls button, .qr-controls a {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: buttonGlow 2s infinite;
+        }
+
+        .qr-controls button:hover, .qr-controls a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes buttonGlow {
+            0% { 
+                background-color: #ff4d4d;
+                box-shadow: 0 4px 8px rgba(255, 77, 77, 0.6);
+            }
+            25% { 
+                background-color: #4d79ff;
+                box-shadow: 0 4px 8px rgba(77, 121, 255, 0.6);
+            }
+            50% { 
+                background-color: #33cc33;
+                box-shadow: 0 4px 8px rgba(51, 204, 51, 0.6);
+            }
+            75% { 
+                background-color: #ffb74d;
+                box-shadow: 0 4px 8px rgba(255, 183, 77, 0.6);
+            }
+            100% { 
+                background-color: #ff4d4d;
+                box-shadow: 0 4px 8px rgba(255, 77, 77, 0.6);
+            }
+        }
+
+        .payment-section {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .payment-method {
+            border: 4px solid;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 10px;
+            background-color: #fafafa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 200px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: borderGlow 1.5s infinite alternate, fadeIn 1.5s ease-in-out;
+        }
+
+        .payment-method img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .payment-method p {
+            margin: 5px 0;
+            color: #444;
+            font-size: 14px;
+        }
+
+        .copy-btn {
+            margin-top: 5px;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            animation: buttonGlow 2s infinite;
+        }
+
+        .copy-btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #888;
+            animation: borderGlow 1.5s infinite alternate, fadeIn 1.5s ease-in-out;
+        }
+
+        .whatsapp-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #25d366;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #1ebe57;
+            transform: scale(1.05);
+        }
+
+        .social-icons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            border-radius: 50%;
+            color: black;
+            font-size: 28px;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: borderGlow 2s infinite;
+        }
+
+.social-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.8);
+}
+
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes borderGlow {
+            0% { border-color: #ff4d4d; box-shadow: 0 0 10px rgba(255, 77, 77, 0.6); }
+            25% { border-color: #4d79ff; box-shadow: 0 0 10px rgba(77, 121, 255, 0.6); }
+            50% { border-color: #33cc33; box-shadow: 0 0 10px rgba(51, 204, 51, 0.6); }
+            75% { border-color: #ffb74d; box-shadow: 0 0 10px rgba(255, 183, 77, 0.6); }
+            100% { border-color: #ff4d4d; box-shadow: 0 0 10px rgba(255, 77, 77, 0.6); }
+        }
+    </style>
+</style>
+  <!-- Adding background music --> 
+  <audio autoplay="" loop=""> 
+   <source src="dod.mp3" type="audio/mpeg"> Your browser does not support the audio element. 
+  </audio> 
+	 <div>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">PAYMENT DOD HOSTING</h1>
+        <p class="description">HI GUYS!!! MAKASIH TELAH ORDER<br>E-WALLET DOD HOSTING😇!!</p>
+                <div class="social-icons">
+            <a href="https://wa.me/6285754721836" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://t.me/Dodhosting" class="social-icon"><i class="fab fa-telegram-plane"></i></a>
+            
+      
+        </div>
+        <div class="qr-section">
+            <h2>Scan untuk Pembayaran</h2>
+            <div class="qr-container">
+                <img id="qris" src="https://i.ibb.co.com/p60x73K4/IMG-20250205-WA0662.jpg" alt="QRIS ALL PAY DOD HOSTING">
+            </div>
+            <div class="qr-controls">
+                <button id="zoomBtn" class="oval-btn">Zoom QRIS</button>
+                <a id="downloadLink" class="oval-btn" href="DodPayment
+</html>.jpg" download="https://i.ibb.co.com/ZhZvBGM/images.jpg">Download QRIS</a>
+            </div>
+        </div>
+
+        <div class="payment-section">
+            <div class="payment-method">
+                <img src="https://i.ibb.co.com/zV89w1xB/dana.jpg" alt="Dana">
+                <p>Nomor: <span id="danaNuMAKASI" >085656194728</span></span></p>
+                <p>Atas Nama: DOD HOSTING</p>
+                <button class="copy-btn" onclick="copyToClipboard('danaNuMAKASI')">Copy Nomor</button>
+            </div>
+            </div>
+            
+            <p>NOTE : JANGAN LUPA SS BUKTI NYA YA AGAR PESANANA ANDA SEGERA DI PROSES</p>
+
+        <a href="https://wa.me/6285656194728" class="whatsapp-btn">
+            HUBUNGI DOD HOSTING
+        </a>
+
+
+
+        <div class="footer">
+            &copy; DOD HOSTING
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById('zoomBtn').addEventListener('click', function() {
+            const qrImage = document.getElementById('qris');
+            if (qrImage.style.transform === 'scale(1.5)') {
+                qrImage.style.transform = 'scale(1)';
+            } else {
+                qrImage.style.transform = 'scale(1.5)';
+            }
+            qrImage.style.transition = 'transform 0.3s ease';
+        });
+
+        function copyToClipboard(elementId) {
+            const textToCopy = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil!',
+                    text: 'Nomor telah disalin ke clipboard!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }).catch(err => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Gagal!',
+                    text: 'Gagal menyalin ke clipboard!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            });
+        }
+    </script>
+</body>
+  </html>
